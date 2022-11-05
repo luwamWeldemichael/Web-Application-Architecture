@@ -3,3 +3,5 @@ Assignment1... 1.1 [Post](https://github.com/Luwamcyber/CS545Assignments/tree/ma
 
 
 [Assignment2](https://github.com/Luwamcyber/CS545Assignments/tree/main/Assignment2)
+
+[Assignment3](https://github.com/Luwamcyber/CS545Assignments/tree/main/assignment3)
