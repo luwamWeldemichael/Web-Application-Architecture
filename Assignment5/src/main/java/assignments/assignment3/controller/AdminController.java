@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AdminController {
 
-    @GetMapping("")
+    @GetMapping
     public String admin() {
         return "OK";
     }

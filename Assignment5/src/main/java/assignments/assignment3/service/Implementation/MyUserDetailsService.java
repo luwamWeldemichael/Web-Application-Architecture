@@ -1,11 +1,13 @@
 package assignments.assignment3.service.Implementation;
 
 import assignments.assignment3.repository.UserRepo;
+import lombok.Data;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
+@Data
 @Component
 public class MyUserDetailsService implements UserDetailsService {
 

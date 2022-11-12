@@ -33,12 +33,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/v1/authenticate/**").permitAll()
-                .antMatchers("/api/v1/posts").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/api/v1/admin").hasRole("ADMIN")
                 .antMatchers("/h2-console/**").permitAll()
+                .antMatchers("/api/v1/authenticate/**").permitAll()
+                .antMatchers("/api/v1/**").hasAuthority("USER")
+                .antMatchers("/api/v1/**").hasAuthority("ADMIN")
+                .antMatchers("/admin").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
+                .and()
+                .headers().frameOptions().disable()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

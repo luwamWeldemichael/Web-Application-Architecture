@@ -1,9 +1,13 @@
 package assignments.assignment3.service.Implementation;
 
 import assignments.assignment3.domain.Post;
+import assignments.assignment3.domain.User;
 import assignments.assignment3.repository.PostRepo;
+import assignments.assignment3.repository.UserRepo;
 import assignments.assignment3.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +18,9 @@ public class PostServiceImpl implements PostService {
 
     @Autowired
     PostRepo postRepo;
+
+    @Autowired
+    UserRepo userRepo;
     @Override
     public List<Post> getPosts() {
         return postRepo.findAll();
@@ -30,7 +37,16 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public String savePost(Post p) {
-        postRepo.save(p);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserEmail = authentication.getName();
+        User user = userRepo.findByEmail(currentUserEmail);
+        if(user!=null){
+            user.getPosts().add(p);
+            userRepo.save(user);
+        }
+        else{
+            postRepo.save(p);
+        }
         return "successfully saved";
     }
 
