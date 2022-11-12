@@ -7,3 +7,7 @@
 [Assignment3](https://github.com/Luwamcyber/CS545Assignments/tree/main/assignment3)
 
 [Assignment4](https://github.com/Luwamcyber/CS545Assignments/tree/main/Assignment4)
+
+[Assignment5]()
+
+[Assignment6](https://github.com/Luwamcyber/CS545Assignments/tree/main/Assignment6) :  [ReadMe](https://github.com/Luwamcyber/CS545Assignments/blob/main/Assignment6/README.md)
