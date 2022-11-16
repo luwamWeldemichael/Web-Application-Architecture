@@ -22,14 +22,4 @@ public class Post {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "post_Id")
     List<Comment> comments;
-
-//    @Override
-//    public String toString() {
-//        return "Post{" +
-//                "id=" + id +
-//                ", title='" + title + '\'' +
-//                ", content='" + content + '\'' +
-//                ", author='" + author +
-//                '}';
-//    }
 }

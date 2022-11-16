@@ -1,6 +1,8 @@
 package assignments.assignment3.controller;
 
+import assignments.assignment3.domain.Comment;
 import assignments.assignment3.domain.Post;
+import assignments.assignment3.service.CommentService;
 import assignments.assignment3.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,9 @@ import java.util.List;
 public class PostController {
     @Autowired
     PostService postService;
+
+    @Autowired
+    CommentService commentService;
 
     @GetMapping
     public List<Post> getPosts(){
@@ -42,5 +47,10 @@ public class PostController {
     @GetMapping("/with/{title}")
     public List<Post> getPosts(@PathVariable String title){
         return postService.getPosts(title);
+    }
+
+    @PostMapping("/{id}/comments")
+    public void saveComment(@PathVariable("id") long postId, @RequestBody Comment c) {
+        commentService.save(postId, c);
     }
 }

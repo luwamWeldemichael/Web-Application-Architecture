@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(allowedHeaders = "Access-control-Allow-origin")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {

@@ -16,14 +16,6 @@ public class Comment {
     long id;
     String name;
 
-//    @ManyToOne
-//    Post post;
-
-//    @Override
-//    public String toString() {
-//        return "Comment{" +
-//                "id=" + id +
-//                ", name='" + name +
-//                '}';
-//    }
+    @ManyToOne
+    Post post;
 }
