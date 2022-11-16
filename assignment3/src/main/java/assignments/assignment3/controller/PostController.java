@@ -5,10 +5,13 @@ import assignments.assignment3.domain.Post;
 import assignments.assignment3.service.CommentService;
 import assignments.assignment3.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.HttpMediaTypeException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(allowedHeaders = "Access-control-Allow-origin: *")
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {
@@ -25,6 +28,7 @@ public class PostController {
         return postService.getPost(id);
     }
 
+    @ResponseStatus(HttpStatus.OK)
     @PostMapping
     public String savePost(@RequestBody Post post){
         return postService.savePost(post);

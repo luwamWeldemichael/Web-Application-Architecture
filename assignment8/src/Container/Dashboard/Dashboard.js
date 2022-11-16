@@ -25,7 +25,7 @@ const Dashbord = () => {
     useEffect(() => { fetchData() }, [])
 
     const deleteHandler = (id) => {
-        axios.delete('http://localhost:8080/api/posts/delete/' + id )
+        axios.delete('http://localhost:8080/api/posts/delete/' + id)
         console.log("delete method called")
             .then(response => { fetchData() })
             .catch(error => {
@@ -34,8 +34,8 @@ const Dashbord = () => {
     }
 
     const [selected, setSelected] = useState(0);
-    
-    const post = posts.filter(p => p.id==selected);
+
+    const post = posts.filter(p => p.id == selected);
 
 
     const setSelectedHandler = (id) => {
@@ -50,6 +50,14 @@ const Dashbord = () => {
         setPosts([...posts])
     }
 
+    const addButtonClicked = () => {
+        axios.post('http://localhost:8080/api/posts', posts)
+            .then(response => {
+                setPosts(response);
+                fetchData();
+                console.log('successfully saved')
+            })
+    }
 
     return (
         <div>
@@ -73,9 +81,11 @@ const Dashbord = () => {
             </div>
             <div>
                 <AddPost
+                    id={posts.id}
                     title={posts.title}
                     author={posts.author}
                     content={posts.content}
+                    addPost={addButtonClicked}
                 />
             </div>
         </div>

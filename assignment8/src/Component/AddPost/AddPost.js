@@ -5,6 +5,13 @@ const AddPost = (props) => {
         <div>
             <h1>Add a Post</h1>
 
+            <label>Id</label>
+            <input type="text"
+                label={'id'}
+                name={'id'}
+                onChange={props.onChange}
+                value={props.title}
+            />
             <label>Title</label>
             <input type="text"
                 label={'title'}
@@ -29,7 +36,7 @@ const AddPost = (props) => {
                 value={props.title}
             />
 
-            <button onClick={props.addButtonClicked}>Add Post </button>
+            <button onClick={props.addPost}>Add Post </button>
         </div>
     )
 }
