@@ -14,4 +14,4 @@
 
 [Assignment7](https://github.com/Luwamcyber/CS545Assignments/tree/main/assignment7)
 
-[Assignment8]()
+[Assignment8](https://github.com/Luwamcyber/CS545Assignments/tree/main/assignment8)
