@@ -16,9 +16,6 @@ public class PostController {
     @Autowired
     PostService postService;
 
-    @Autowired
-    CommentService commentService;
-
     @GetMapping
     public List<Post> getPosts(){
         return postService.getPosts();
