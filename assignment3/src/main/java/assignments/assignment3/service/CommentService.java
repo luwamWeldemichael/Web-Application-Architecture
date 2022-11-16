@@ -9,6 +9,4 @@ public interface CommentService {
 
     List<Comment> getAllComments();
 
-    void save(long postId, Comment comment);
-
 }

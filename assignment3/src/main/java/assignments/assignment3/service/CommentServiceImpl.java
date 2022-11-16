@@ -27,9 +27,4 @@ public class CommentServiceImpl implements CommentService{
         return commentRepo.findAll();
     }
 
-    @Override
-    public void save(long postId, Comment comment) {
-        comment.setPost(postRepo.findById(postId).get());
-        commentRepo.save(comment);
-    }
 }

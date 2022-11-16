@@ -49,8 +49,4 @@ public class PostController {
         return postService.getPosts(title);
     }
 
-    @PostMapping("/{id}/comments")
-    public void saveComment(@PathVariable("id") long postId, @RequestBody Comment c) {
-        commentService.save(postId, c);
-    }
 }

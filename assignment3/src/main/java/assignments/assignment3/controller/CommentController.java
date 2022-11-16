@@ -19,6 +19,8 @@ public class CommentController {
     public List<Comment> getAllComments(){
         return commentService.getAllComments();
     }
+
+
     @PostMapping("/{post_id}")
     public void saveComment(@RequestBody Comment comment ,@PathVariable long post_id){
         commentService.saveComment(comment);

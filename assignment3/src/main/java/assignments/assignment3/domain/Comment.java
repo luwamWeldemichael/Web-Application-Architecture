@@ -16,6 +16,4 @@ public class Comment {
     long id;
     String name;
 
-    @ManyToOne
-    Post post;
 }
