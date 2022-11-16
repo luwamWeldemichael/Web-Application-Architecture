@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ }
+  
+ code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+ }
+  
+ .Content {
+  width: 200px;
+  padding: 16px;
+  text-align: left;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #87C1FF;
+  margin: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+   background-color:	#1261A0
+
+   /* #ADD8E6; */
+ }
+  
+ .Post {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  /* width: 80%; */
+  margin: auto;
+ }
+  
+ .Content:hover,
+ .Content:active {
+  background-color: #87C1FF;
+ }
+  
+ .Field{
+  margin: 16px 0;
+  color: rgb(10, 7, 206);
+ }
+
+ .label {
+    display: block;
+    margin: 20px auto;
+    text-align: left;
+    font-weight: bold;
+    justify-content: left;
+}
+
+input[type="text"]{
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 20px;
+  width: 13%;
+  font-size:20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.button{
+  font-size: 15px;
+  margin-top: 8px;
+  margin-left: 10px;
+  border-radius: 6px;
+} 
