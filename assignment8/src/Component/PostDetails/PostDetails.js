@@ -7,16 +7,16 @@ const PostDetails = (props) => {
 
     return (
         <div className="PostDetails">
-            <h2>{props.title}</h2>
+            <h2><u>{props.title}</u></h2>
             <h3>{props.author}</h3>
           <div className='text'> 
-            <h4>{props.content}</h4>
+            <p>{props.content}</p>
           </div>
             <br/> 
             <br/>
             
             <button onClick={edit}>edit</button>
-            <button onClick={props.deletePost}>delete</button>
+            <button onClick={() => {props.deletePost(props.id)}}>delete</button>
           
         </div>
     );

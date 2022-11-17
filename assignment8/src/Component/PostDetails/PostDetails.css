@@ -7,10 +7,14 @@
     margin-top: 50px;
 }
 
-.PostDetails.button {
+.PostDetails button {
+    font-size: 17px;
+    margin-top: 8px;
+    margin-left: 50px;
+    border-radius: 0px;
     color: red;
-    height: 90%;
-    margin-top: 60px;
+    background-color: white;
+
 }
 
 .Edit label {
@@ -40,7 +44,7 @@
     color: darkred
 }
 
-.text{
+.text {
     margin-top: 20px;
     text-align: left;
 }

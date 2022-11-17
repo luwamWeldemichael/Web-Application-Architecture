@@ -1,6 +1,6 @@
 import { useDeferredValue, useEffect, useState } from "react";
 import PostDetails from "../../Component/PostDetails/PostDetails";
-import Posts from "../../Component/Posts/Posts";
+import Posts from "../Posts/Posts";
 import axios from "axios";
 import AddPost from "../../Component/AddPost/AddPost";
 
@@ -24,15 +24,6 @@ const Dashbord = () => {
 
     useEffect(() => { fetchData() }, [])
 
-    const deleteHandler = (id) => {
-        axios.delete('http://localhost:8080/api/posts/delete/' + id)
-        console.log("delete method called")
-            .then(response => { fetchData() })
-            .catch(error => {
-                console.log(error.message)
-            })
-    }
-
     const [selected, setSelected] = useState(0);
 
     const post = posts.filter(p => p.id == selected);
@@ -50,8 +41,21 @@ const Dashbord = () => {
         setPosts([...posts])
     }
 
+
+    const deleteHandler = (id) => {
+        axios.delete('http://localhost:8080/api/posts/delete/' + id , posts)
+        // console.log("delete method called")
+            .then(response => { 
+                setPosts(response);
+                fetchData() })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
     const addButtonClicked = () => {
         axios.post('http://localhost:8080/api/posts', posts)
+        console.log("add method called")
             .then(response => {
                 setPosts(response);
                 fetchData();
@@ -73,11 +77,13 @@ const Dashbord = () => {
             <div>
                 <PostDetails
                     id={selected}
-                    title={post[0].title}
-                    author={post[0].author}
-                    content={post[0].content}
+                    title={{...posts[selected-1]}.title}
+                    author={{...posts[selected-1]}.author}
+                    content={{...posts[selected-1]}.content}
                     deletePost={deleteHandler}
                 />
+
+
             </div>
             <div>
                 <AddPost
