@@ -9,10 +9,12 @@ const PostDetails = (props) => {
   const [postDetails, setPostDetails] = useState({})
 
   useEffect(() => {
-    axios.get('http://localhost/8080/posts/' + props.id + 'comments')
+    axios.get('http://localhost/8080/posts/' + props.id + '/comments')
       .then(response => {
+        console.log(props.id)
+        console.log('comment method reached')
+        console.logres(response.data)
         setPostDetails(response.data)
-        // console.log("RESPONSE:", response.data)
       })
       .catch(error => { console.log(error.message) })
   }, [props.id])
