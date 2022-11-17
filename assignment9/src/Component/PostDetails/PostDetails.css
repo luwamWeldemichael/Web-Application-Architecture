@@ -1,0 +1,50 @@
+.PostDetails {
+    width: 70%;
+    margin: 20px auto;
+    border: 1px solid #1261A0;
+    box-shadow: 0 2px 3px #1261A0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.PostDetails button {
+    font-size: 17px;
+    margin-top: 8px;
+    margin-left: 50px;
+    border-radius: 0px;
+    color: red;
+    background-color: white;
+
+}
+
+.Edit label {
+    display: block;
+    color: grey;
+}
+
+.Edit button {
+    border: none;
+    background-color: transparent;
+    color: red;
+    height: 60%;
+
+}
+
+.Edit button:hover,
+.Edit button:active {
+    color: #521751;
+}
+
+.Edit button.Delete {
+    color: red;
+}
+
+.Edit button.Delete:hover,
+.Edit button.Delete:activr {
+    color: darkred
+}
+
+.text {
+    margin-top: 20px;
+    text-align: left;
+}
