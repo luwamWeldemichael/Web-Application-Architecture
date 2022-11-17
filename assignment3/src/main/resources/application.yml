@@ -16,3 +16,6 @@ spring:
       ddl-auto: create-drop
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
 
+
+security:
+  allowedOrigins: "http://localhost:3000"

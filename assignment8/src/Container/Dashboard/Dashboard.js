@@ -12,6 +12,12 @@ const Dashbord = () => {
         { id: 3, title: 'Enjoy Life', author: 'Jasmine' },
     ]);
 
+    const [selected, setSelected] = useState(0);
+
+    const [flag, setFlag] = useState(true);
+
+    const [title, setTitle] = useState("");
+
     const fetchData = () => {
         axios.get('http://localhost:8080/api/posts')
             .then(response => {
@@ -22,44 +28,31 @@ const Dashbord = () => {
             })
     }
 
-    useEffect(() => { fetchData() }, [])
-
-    const [selected, setSelected] = useState(0);
+    useEffect(() => { fetchData() }, [flag])
 
     const post = posts.filter(p => p.id == selected);
 
+    const updateFlag = () => {
+        setFlag(!flag);
+    }
 
     const setSelectedHandler = (id) => {
         setSelected(id);
         console.log(id)
     }
 
-    const [title, setTitle] = useState("");
-
     const changeTitle = () => {
         posts[0].title = title;
         setPosts([...posts])
     }
 
-
     const deleteHandler = (id) => {
-        axios.delete('http://localhost:8080/api/posts/delete/' + id , posts)
-        // console.log("delete method called")
-            .then(response => { 
-                setPosts(response);
-                fetchData() })
+        axios.delete('http://localhost:8080/api/posts/delete/' + id, posts)
+            .then(response => {
+                fetchData(); console.log(response)
+            })
             .catch(error => {
                 console.log(error.message)
-            })
-    }
-
-    const addButtonClicked = () => {
-        axios.post('http://localhost:8080/api/posts', posts)
-        console.log("add method called")
-            .then(response => {
-                setPosts(response);
-                fetchData();
-                console.log('successfully saved')
             })
     }
 
@@ -77,9 +70,9 @@ const Dashbord = () => {
             <div>
                 <PostDetails
                     id={selected}
-                    title={{...posts[selected-1]}.title}
-                    author={{...posts[selected-1]}.author}
-                    content={{...posts[selected-1]}.content}
+                    title={{ ...posts[selected - 1] }.title}
+                    author={{ ...posts[selected - 1] }.author}
+                    content={{ ...posts[selected - 1] }.content}
                     deletePost={deleteHandler}
                 />
 
@@ -91,7 +84,8 @@ const Dashbord = () => {
                     title={posts.title}
                     author={posts.author}
                     content={posts.content}
-                    addPost={addButtonClicked}
+                    updateFlag={updateFlag}
+
                 />
             </div>
         </div>

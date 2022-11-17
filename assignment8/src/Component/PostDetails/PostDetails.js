@@ -1,9 +1,22 @@
 import './PostDetails.css'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 const PostDetails = (props) => {
     const edit = () =>{}
-  
-    // const deleteDetails = () =>{}
+
+    const [comments, setComments] = useState( 0  )
+
+    // useEffect(
+    //   () => {
+    //       axios.get('http://localhost:8080/api/posts/' + props.id + '/comments')
+    //           .then(response => {
+    //             setComments(response.data)
+    //               // console.log("RESPONSE:", response.data)
+    //           })
+    //           .catch(err => console.log(err.message))
+    //   },
+    //   [props.id])
 
     return (
         <div className="PostDetails">
