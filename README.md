@@ -11,3 +11,7 @@
 [Assignment5](https://github.com/Luwamcyber/CS545Assignments/tree/main/Assignment5)
 
 [Assignment6](https://github.com/Luwamcyber/CS545Assignments/tree/main/Assignment6) :  [ReadMe](https://github.com/Luwamcyber/CS545Assignments/blob/main/Assignment6/README.md)
+
+[Assignment7](https://github.com/Luwamcyber/CS545Assignments/tree/main/assignment7)
+
+[Assignment8](https://github.com/Luwamcyber/CS545Assignments/tree/main/assignment8)
