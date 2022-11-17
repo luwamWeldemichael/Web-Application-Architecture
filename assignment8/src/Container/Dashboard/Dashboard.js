@@ -1,4 +1,4 @@
-import { useDeferredValue, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PostDetails from "../../Component/PostDetails/PostDetails";
 import Posts from "../Posts/Posts";
 import axios from "axios";
@@ -7,9 +7,9 @@ import AddPost from "../../Component/AddPost/AddPost";
 const Dashbord = () => {
 
     const [posts, setPosts] = useState([
-        { id: 1, title: 'Happiness', author: 'John' },
-        { id: 2, title: 'MIU', author: 'Dean' },
-        { id: 3, title: 'Enjoy Life', author: 'Jasmine' },
+        { id: 1, title: 'Happiness', author: 'John' , content: 'hi'},
+        { id: 2, title: 'MIU', author: 'Dean' , content: 'hi'},
+        { id: 3, title: 'Enjoy Life', author: 'Jasmine' , content: 'hi'},
     ]);
 
     const [selected, setSelected] = useState(0);
@@ -30,7 +30,8 @@ const Dashbord = () => {
 
     useEffect(() => { fetchData() }, [flag])
 
-    const post = posts.filter(p => p.id == selected);
+    // const post = posts.filter(p => p.id === selected)
+
 
     const updateFlag = () => {
         setFlag(!flag);
@@ -47,7 +48,7 @@ const Dashbord = () => {
     }
 
     const deleteHandler = (id) => {
-        axios.delete('http://localhost:8080/api/posts/delete/' + id, posts)
+        axios.delete('http://localhost:8080/api/posts/delete/' + id)
             .then(response => {
                 fetchData(); console.log(response)
             })
@@ -73,6 +74,7 @@ const Dashbord = () => {
                     title={{ ...posts[selected - 1] }.title}
                     author={{ ...posts[selected - 1] }.author}
                     content={{ ...posts[selected - 1] }.content}
+                    // comments = {{ ...posts[selected - 1] }.comments}
                     deletePost={deleteHandler}
                 />
 
