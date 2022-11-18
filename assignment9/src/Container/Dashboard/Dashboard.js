@@ -4,6 +4,7 @@ import Posts from "../Posts/Posts";
 import axios from "axios";
 import AddPost from "../../Component/AddPost/AddPost";
 import { Context } from "../../Store/Context";
+import AddPostWithRef from "../../Component/AddPost/AddPostWithRef";
 
 const Dashbord = () => {
 
@@ -77,7 +78,7 @@ const Dashbord = () => {
                         title={{ ...posts[selected - 1] }.title}
                         author={{ ...posts[selected - 1] }.author}
                         content={{ ...posts[selected - 1] }.content}
-                        // comments = {{ ...posts[selected - 1] }.comments}
+                        key = {selected}
                         deletePost={deleteHandler}
                     />
 
@@ -92,6 +93,10 @@ const Dashbord = () => {
                         updateFlag={updateFlag}
 
                     />
+                </div>
+
+                <div>
+                    <AddPostWithRef updateFlag={updateFlag}/>
                 </div>
             </div>
         </Context.Provider>
