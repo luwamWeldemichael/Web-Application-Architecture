@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { Context } from "../../Store/Context";
 
 
 const Post = (props) => {

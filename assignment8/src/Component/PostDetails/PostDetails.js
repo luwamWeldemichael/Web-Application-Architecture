@@ -6,15 +6,12 @@ import Comment from '../Comment/Comment'
 const PostDetails = (props) => {
   const edit = () => { }
 
-  const [postDetails, setPostDetails] = useState({})
+  const [postCommentDetails, setPostCommentDetails] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost/8080/posts/' + props.id + '/comments')
+    axios.get('http://localhost:8080/api/posts/' + props.id + '/comments')
       .then(response => {
-        console.log(props.id)
-        console.log('comment method reached')
-        console.logres(response.data)
-        setPostDetails(response.data)
+        setPostCommentDetails(response.data)
       })
       .catch(error => { console.log(error.message) })
   }, [props.id])
@@ -32,10 +29,10 @@ const PostDetails = (props) => {
 
       <button onClick={edit}>edit</button>
       <button onClick={() => { props.deletePost(props.id) }}>delete</button>
-      <div style={{ textAlign: "left" }}>
-        Comments <br />
-        {postDetails.comments != null ? postDetails.comments.map(comment => {
-          return <Comment comments={comment} />
+      <div style={{ textAlign: "left" }} className="PostDetails">
+        <h2>Comments</h2>
+        {postCommentDetails != null ? postCommentDetails.map(comment => {
+          return <Comment comments={comment.name} key= {comment.id}/>
         }) : null}
       </div>
 
